@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI Video Studio</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🎬 Studio</h2>
+    <nav>
+      <button data-tab="overview" class="active">Overview</button>
+      <button data-tab="prompts">Prompt Templates</button>
+      <button data-tab="ideas">Idea Library</button>
+      <button data-tab="queue">Queue</button>
+      <button data-tab="settings">Settings</button>
+    </nav>
+    <div class="status-card">
+      <div>Last run: <span id="lastRun">-</span></div>
+      <div>Next run: <span id="nextRun">-</span></div>
+    </div>
+  </aside>
+  <main>
+    <section id="tab-overview" class="tab active">
+      <h1>Autonomous AI Video Production Studio</h1>
+      <div class="grid2">
+        <div class="card prominent">
+          <h3>💡 Idea Generation Prompt Note Box <span id="saveIndicator" class="badge">saved</span></h3>
+          <textarea id="ideaPrompt" rows="12" placeholder="এখানে তোমার idea-generation prompt লিখো... উদাহরণ: Generate 10 unique manga story ideas for 60s vertical video, each with title and 2-line description in JSON."></textarea>
+          <div class="row">
+            <button id="btnSave" class="primary">Save</button>
+            <button id="btnRestore">Restore Last Saved</button>
+            <button id="btnTest">Test Prompt (no pipeline)</button>
+            <button id="btnRunNow" class="accent">Run Now 🚀</button>
+          </div>
+          <div id="promptMeta"></div>
+        </div>
+        <div class="card">
+          <h3>Result & Selection</h3>
+          <pre id="rawResult"></pre>
+          <div id="selectedIdea"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Jobs</h3>
+        <table id="jobsTable"><thead><tr><th>Run ID</th><th>Status</th><th>Stage</th><th>Time</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+    <section id="tab-prompts" class="tab">
+      <h2>Prompt Template Manager</h2>
+      <p>প্রতিটি stage এর prompt আলাদা। Idea prompt বদলালে script/image prompt বদলাবে না।</p>
+      <div id="templateList"></div>
+    </section>
+    <section id="tab-ideas" class="tab">
+      <h2>Idea Library</h2>
+      <table id="ideasTable"><thead><tr><th>ID</th><th>Title</th><th>Selected</th><th>Dup</th></tr></thead><tbody></tbody></table>
+    </section>
+    <section id="tab-queue" class="tab">
+      <h2>Workflow Queue</h2>
+      <table id="queueTable"><thead><tr><th>Task</th><th>Type</th><th>Status</th><th>Episode</th></tr></thead><tbody></tbody></table>
+    </section>
+    <section id="tab-settings" class="tab">
+      <h2>Settings</h2>
+      <div class="card">
+        <label>Daily Time (Asia/Dhaka) <input id="dailyTime" type="time"/></label>
+        <label><input id="scheduleEnabled" type="checkbox"/> Schedule Enabled</label>
+        <label>Missed run policy <select id="missedPolicy"><option value="skip">skip</option><option value="run_on_startup">run_on_startup</option></select></label>
+        <label>Provider <select id="provider"><option value="generic">generic</option><option value="claude">claude</option></select></label>
+        <label>Camoufox executable path <input id="camExe" placeholder="/home/user/.cache/camoufox/camoufox"/></label>
+        <label>Connect URL (if using remote debugging) <input id="connectUrl" placeholder="http://127.0.0.1:9222"/></label>
+        <button id="btnSaveSettings" class="primary">Save Settings</button>
+        <button id="btnTestCamoufox">Test Camoufox</button>
+        <pre id="camTest"></pre>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

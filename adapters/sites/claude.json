@@ -1,0 +1,7 @@
+{
+  "url": "https://claude.ai/chats",
+  "input_selector": "div[contenteditable=true]",
+  "submit_selector": "button[aria-label='Send Message']",
+  "result_selector": "div[data-is-streaming='false']",
+  "wait_ms": 120000
+}

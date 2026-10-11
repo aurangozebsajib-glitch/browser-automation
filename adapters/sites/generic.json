@@ -1,0 +1,8 @@
+{
+  "url": "https://chat.openai.com/",
+  "input_selector": "textarea#prompt-textarea",
+  "submit_selector": "button[data-testid='send-button']",
+  "result_selector": "div[data-message-author-role='assistant']",
+  "wait_ms": 120000,
+  "notes": "Replace with your target AI site selectors"
+}

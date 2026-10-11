@@ -1,0 +1,20 @@
+
+:root{--bg:#0f1115;--card:#171a21;--accent:#7c5cff;--text:#e6e8ee;--muted:#9aa0b2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#0c0e13;padding:16px;border-right:1px solid #222}
+.sidebar button{width:100%;text-align:left;padding:8px 12px;margin:4px 0;background:transparent;border:1px solid #222;color:var(--text);border-radius:8px;cursor:pointer}
+.sidebar button.active{background:var(--accent);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid #222;border-radius:16px;padding:16px;margin:12px 0}
+.card.prominent{border:2px solid var(--accent)}
+.grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}.layout{flex-direction:column}.sidebar{width:100%}}
+textarea{width:100%;background:#0b0d12;color:var(--text);border:1px solid #2a2e3a;border-radius:12px;padding:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+button.primary{background:var(--accent);color:white;border:none;padding:8px 14px;border-radius:10px;cursor:pointer}
+button.accent{background:#00d18f;color:black;border:none;padding:8px 14px;border-radius:10px;cursor:pointer}
+.badge{font-size:12px;background:#222;padding:2px 6px;border-radius:6px}
+table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #222;text-align:left;font-size:14px}
+.tab{display:none;padding:16px} .tab.active{display:block}
+pre{white-space:pre-wrap;background:#0b0d12;padding:10px;border-radius:10px;max-height:300px;overflow:auto}
+label{display:block;margin:8px 0}
